@@ -29,10 +29,8 @@ const Grid = (props) => {
     //     fill_island(x, y + 1, start_colour, target_colour);
     // }
     
-    
-    let count = 0;
     return (
-        <div className='flex w-150'>{
+        <div className='flex w-150 h-150'>{
         image.map((row, rowIndex) => {
             return (
               <div key={rowIndex} className={"col-" + rowIndex}> { 

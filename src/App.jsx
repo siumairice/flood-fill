@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Grid from './components/Grid'
+import InputBar from './components/InputBar';
 
 function App() {
   function generateRandomMatrix(cols, rows){
@@ -22,7 +23,11 @@ let image = generateRandomMatrix(15, 15)
 
   return (
     <>
+    <h1 className='font-bold mb-5'>Flood Fill</h1>
+    <div className='flex gap-10 justify-center'>
       <Grid matrix={image}/>
+      <InputBar/>
+    </div>
     </>
   )
 }
