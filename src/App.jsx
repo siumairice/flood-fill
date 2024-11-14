@@ -4,6 +4,8 @@ import Grid from './components/Grid'
 import InputBar from './components/InputBar';
 
 function App() {
+  let rows = 15, cols = 15;
+
   function generateRandomMatrix(cols, rows){
     var matrix = [];
     for(var i=0; i<cols; i++) {
@@ -15,29 +17,32 @@ function App() {
     return matrix;
   }
 
-  let [image, setImage] = useState(generateRandomMatrix(15, 15));
+  let [image, setImage] = useState(generateRandomMatrix(rows, cols));
   let [colour, setColour] = useState(image[0][0]);
 
-  function floodFill(image, colour){  
-      if(image[0][0] == colour) return image;
-      fill_island(0, 0, image[0][0], colour)
-      return image;
+  function floodFill(img, colour){  
+      if(img[0][0] == colour) return img;
+      console.log(img[0][0], colour);
+      fill_island(0, 0, img[0][0], colour, img);
+      console.log(img);
+      return img;
   }
 
-  function fill_island(x, y, start_colour, target_colour){
-      if(x < 0 || x >= image.length && y < 0 || y >= image[0].length) return;
-      if (image[x][y] != start_colour)  return;
-      image[x][y] = target_colour;
-      fill_island(x - 1, y, start_colour, target_colour);
-      fill_island(x + 1, y, start_colour, target_colour);
-      fill_island(x, y - 1, start_colour, target_colour);
-      fill_island(x, y + 1, start_colour, target_colour);
+  function fill_island(x, y, start_colour, target_colour, img){
+      if(x < 0 || x >= img && y < 0 || y >= cols) return;
+      if (img[x][y] != start_colour)  return;
+      img[x][y] = target_colour;
+      fill_island(x - 1, y, start_colour, target_colour, img);
+      fill_island(x + 1, y, start_colour, target_colour, img);
+      fill_island(x, y - 1, start_colour, target_colour, img);
+      fill_island(x, y + 1, start_colour, target_colour, img);
   }
 
   useEffect(() => {
     console.log(colour);
-    setImage(floodFill(image, colour));
-  });
+
+    setImage(floodFill(image.map((r) => [...r]), colour));
+  }, [colour]);
 
 
   return (
