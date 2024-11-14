@@ -12,22 +12,6 @@ const Grid = (props) => {
         5: "#8b5cf6",
         6: "#06b6d4"  //cyan
     }
-
-    // function floodFill(image){  
-    //     if(image[0][0] == colour) return image;
-    //     fill_island(0, 0, image[0][0], color)
-    //     return image;
-    // }
-
-    // function fill_island(x, y, start_colour, target_colour){
-    //     if(x < 0 || x >= image.length && y < 0 || y >= image[0].length) return;
-    //     if (image[x][y] != start_colour)  return;
-    //     image[x][y] = target_colour;
-    //     fill_island(x - 1, y, start_colour, target_colour);
-    //     fill_island(x + 1, y, start_colour, target_colour);
-    //     fill_island(x, y - 1, start_colour, target_colour);
-    //     fill_island(x, y + 1, start_colour, target_colour);
-    // }
     
     return (
         <div className='flex w-150 h-150'>{
