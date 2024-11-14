@@ -14,12 +14,8 @@ function App() {
       } 
     return matrix;
   }
-  function printMatrix(matrix){
-    for(let i=0; i<15; i++) {
-      console.log(matrix[i]);
-    } 
-  }
-let image = generateRandomMatrix(15, 15)
+
+  let image = generateRandomMatrix(15, 15)
 
   return (
     <>
