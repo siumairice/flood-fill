@@ -43,7 +43,7 @@ function App() {
 
   return (
     <>
-    <h1 className='font-bold mb-5'>Flood Fill</h1>
+    <h1 className='font-bold mb-5 text-7xl'>Flood Fill</h1>
     <div className='flex gap-10 justify-center'>
       <Grid matrix={image}/>
       <InputBar setColour={setColour}/>
