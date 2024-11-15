@@ -22,14 +22,12 @@ function App() {
 
   function floodFill(img, colour){  
       if(img[0][0] == colour) return img;
-      console.log(img[0][0], colour);
       fill_island(0, 0, img[0][0], colour, img);
-      console.log(img);
       return img;
   }
 
   function fill_island(x, y, start_colour, target_colour, img){
-      if(x < 0 || x >= img && y < 0 || y >= cols) return;
+      if (x < 0 || x >= rows|| y < 0 || y >= cols) return;
       if (img[x][y] != start_colour)  return;
       img[x][y] = target_colour;
       fill_island(x - 1, y, start_colour, target_colour, img);
@@ -39,8 +37,6 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(colour);
-
     setImage(floodFill(image.map((r) => [...r]), colour));
   }, [colour]);
 
